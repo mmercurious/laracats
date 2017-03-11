@@ -5,7 +5,7 @@
         <h1>{{$cat->name}}</h1>
         <hr>
         <p>Cat was added {{$cat->created_at->diffForHumans()}}</p>
-        <p>Cat was added by {{$cat->creator()->first()->name}}</p>
+        <p>Cat was added by {{$cat->user->name}}</p>
         <hr>
 
         <p class="lead">{{$cat->description}}</p>

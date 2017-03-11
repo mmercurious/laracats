@@ -17,7 +17,7 @@ class Cat extends Model
     	$this->comments()->create(['body' => $body]);
     }
 
-    public function creator() {
+    public function user() {
     	return $this->belongsTo(User::class, 'creator');
     }
 }
