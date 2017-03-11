@@ -11,7 +11,8 @@ class CatController extends Controller
 {
     public function index()
     {
-        $cats = Cat::all();
+        //$cats = Cat::all();
+        $cats = Cat::orderBy('created_at', 'desc')->get();
 
         return view('cats.index', compact('cats'));
     }
