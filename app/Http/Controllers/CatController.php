@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Cat;
+use Illuminate\Support\Facades\Auth;
 
 class CatController extends Controller
 {
@@ -22,9 +23,11 @@ class CatController extends Controller
     }
 
     public function save(Request $request) {
+    	$user = Auth::user();
     	$cat = Cat::create([
             'name' => $request->name,
             'description' => $request->description,
+            'creator' => $user->id,
         ]);
 
         return redirect()->action('CatController@index')->with('status', 'Cat was added.');

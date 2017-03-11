@@ -7,7 +7,7 @@ use App\Comment;
 
 class Cat extends Model
 {
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description', 'user'];
 
     public function comments() {
     	return $this->hasMany(Comment::class);
