@@ -17,6 +17,11 @@ class CreateCommentsTable extends Migration
             $table->unsignedInteger('cat_id');
             $table->text('body');
             $table->timestamps();
+
+            $table->foreign('cat_id')
+                ->references('id')
+                ->on('cats')
+                ->onDelete('cascade');
         });
     }
 

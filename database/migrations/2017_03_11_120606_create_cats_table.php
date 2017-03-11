@@ -18,6 +18,10 @@ class CreateCatsTable extends Migration
             $table->string('description');
             $table->integer('creator')->nullable();
             $table->timestamps();
+
+            $table->foreign('creator')
+                ->references('id')
+                ->on('users');
         });
     }
 
