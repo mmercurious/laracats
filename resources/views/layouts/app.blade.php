@@ -64,6 +64,8 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{url('/cats/create')}}">Add new cat</a></li>
+                                <li><a href="{{url('/mycats')}}">Browse my cats</a></li>
+                                <li><a href="{{url('/user')}}">Profile</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>

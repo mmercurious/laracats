@@ -1,4 +1,4 @@
-<form action="/cats/{{$cat->id}}/comments" method="post">
+<form action="{{ url('/cats/' . $cat->id . '/comments') }}" method="post">
 
     {{csrf_field()}}
 

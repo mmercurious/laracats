@@ -32,5 +32,16 @@ class CatController extends Controller
     public function show(Cat $cat) {
         return view('cats.show', compact('cat'));
     }
+
+    public function showMyCats() {
+    	$user = Auth::user();
+    	$id = $user->id;
+    	
+    	$cats = Cat::where('creator', intval($user->id))
+    			->orderBy('created_at', 'desc')
+    			->get();
+
+    	return view('cats.userscats', compact('cats'));
+    }
     
 }
