@@ -7,7 +7,7 @@ use App\Comment;
 
 class Cat extends Model
 {
-    protected $fillable = ['name', 'description', 'user'];
+    protected $fillable = ['name', 'description', 'creator'];
 
     public function comments() {
     	return $this->hasMany(Comment::class);
@@ -15,5 +15,9 @@ class Cat extends Model
 
     public function addComment($body) {
     	$this->comments()->create(['body' => $body]);
+    }
+
+    public function creator() {
+    	return $this->belongsTo(User::class, 'creator');
     }
 }
