@@ -2,7 +2,9 @@
 
 @section('content')
 
-<form action="/cats" method="post">
+<div class="col-lg-8">
+
+<form action="{{ url('/cats') }}" method="post">
     {{csrf_field()}}
 
 
@@ -20,5 +22,5 @@
 
     <button type="submit" class="btn btn-primary">Add a new cat</button>
 </form>
-
+</div>
 @endsection

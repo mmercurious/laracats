@@ -14,7 +14,7 @@
         <p><a href="/posts/{{$cat->id}}">Read more &rarr;</a></p>
         <hr>
     @empty
-        <p>No cats found :((</p>
+        <p class="lead">No cats found :((</p>
     @endforelse
 
 </div>

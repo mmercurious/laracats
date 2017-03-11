@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'CatController@index');
+Route::get('/cats/create', 'CatController@create');
+Route::post('/cats', 'CatController@save');
 
 Route::auth();
 
