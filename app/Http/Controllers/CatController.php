@@ -30,7 +30,7 @@ class CatController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->action('CatController@index');
+        return redirect()->action('CatController@index')->with('status', 'Cat was added.');
     }
     
 }

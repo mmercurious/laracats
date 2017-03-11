@@ -73,7 +73,36 @@
         </div>
     </nav>
 
-    @yield('content')
+    <!-- Page Content -->
+    <div class="container">                        
+
+        <div class="row">                 
+            @if(session('status'))                     
+                <div class="alert alert-info">                         
+                    {{session('status')}}                     
+                </div>                 
+            @endif                 
+
+            @yield('content')             
+
+        </div>             
+        <!-- /.row -->             
+
+        <hr>             
+
+        <!-- Footer -->             
+        <footer>                 
+            <div class="row">                     
+                <div class="col-lg-12">                         
+                    <p>Copyright &copy; Your Website 2014</p>                     
+                </div>                 
+            </div>                 
+            <!-- /.row -->             
+        </footer>         
+    </div>        
+    <!-- /.container -->
+
+
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
