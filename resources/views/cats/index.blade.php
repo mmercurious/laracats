@@ -11,7 +11,7 @@
 
         <!-- Cat Content -->
         <p class="lead">{{$cat->description}}</p>
-        <p><a href="/posts/{{$cat->id}}">Read more &rarr;</a></p>
+        <p><a href="{{ url("/cats/" .$cat->id) }}">Read more &rarr;</a></p>
         <hr>
     @empty
         <p class="lead">No cats found :((</p>
