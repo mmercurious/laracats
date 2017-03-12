@@ -29,6 +29,11 @@ Route::post('/user/password', 'UserController@changePassword');
 Route::get('/delete', 'UserController@delete');
 Route::post('/delete', 'UserController@deleteUser');
 
+Route::get('/cats/kill', 'CatController@killCats');
+
+Route::get('/cats/{cat}/delete', 'CatController@deleteOne');
+Route::post('/cats/{cat}/remove', 'CatController@confirmDeleteOne');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

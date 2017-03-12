@@ -16,8 +16,12 @@
         <hr>
     @empty
         <p class="lead">You haven't added any cats yet :((</p>
+        <hr>
     @endforelse
-
+   
+    @if($cats) 
+        <a href="{{url('/cats/kill')}}">Delete cats</a>
+    @endif
 </div>
 
     @include('layouts.sidebar')

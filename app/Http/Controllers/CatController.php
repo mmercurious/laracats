@@ -40,5 +40,22 @@ class CatController extends Controller
 
     	return view('cats.userscats', compact('cats'));
     }
+
+    public function killCats() {
+        /*$user = Auth::user();
+
+        $cats = $user->cats()->get();*/
+        return view('cats.remove');
+    }
+
+    public function deleteOne(Cat $cat) {
+        return view('cats.delete', compact('cat'));
+    }
+
+    public function confirmDeleteOne(Cat $cat) {
+        $cat->delete();
+
+        return redirect()->action('CatController@showMyCats')->with('status', 'Cat was deleted.');
+    }
     
 }

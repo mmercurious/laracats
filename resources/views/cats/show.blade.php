@@ -25,6 +25,16 @@
         @else
             Please sign in to post comments
         @endif
+
+        @if($cat->creator == Auth::user()->id)
+
+        <hr>
+
+        <a href="{{url('/cats/'.$cat->id . '/delete')}}">Remove my cat</a>
+
+        @endif
+
+
     </div>
 
     @include('layouts.sidebar')
