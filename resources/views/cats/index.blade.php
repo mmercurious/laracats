@@ -2,8 +2,10 @@
 
 @section('content')
 <div class="col-lg-8">
+    <h1>All the cats :3</h1>
+    <hr>
     @forelse($cats as $cat)
-        <h1>{{{$cat->name}}}</h1>
+        <h2>{{{$cat->name}}}</h2>
         <hr>
         <p>Cat was added {{{$cat->created_at->diffForHumans()}}}</p>
         

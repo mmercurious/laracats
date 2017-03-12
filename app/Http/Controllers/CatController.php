@@ -36,16 +36,9 @@ class CatController extends Controller
     public function showMyCats() {
     	$user = Auth::user();
 
-        $cats = $user->cats()->get();
+        $cats = $user->cats()->orderBy('created_at', 'desc')->get();
 
     	return view('cats.userscats', compact('cats'));
-    }
-
-    public function killCats() {
-        /*$user = Auth::user();
-
-        $cats = $user->cats()->get();*/
-        return view('cats.remove');
     }
 
     public function deleteOne(Cat $cat) {
