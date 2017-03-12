@@ -91,6 +91,7 @@ return [
     |
     */
     'user_password' => 'The old password was incorrect.',
+    'body' => 'You cannot add an empty comment.',
 
     'custom' => [
         'attribute-name' => [

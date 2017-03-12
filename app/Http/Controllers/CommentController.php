@@ -11,10 +11,10 @@ class CommentController extends Controller
     public function save(Cat $cat, Request $request)
     {
         $this->validate($request, [
-            'body' => 'required'
+            'comment' => 'required'
         ]);
 
-        $cat->addComment($request->body);
+        $cat->addComment($request->comment);
 
         return back();
     }
