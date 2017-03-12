@@ -32,6 +32,17 @@
         {!!$errors->first('thoughts', '<p class="help-block">:message</p>')!!}
     </div>
 
+    <div class="checkbox">
+        <label>                         
+            <input type="checkbox" name="remove" value="1">                         
+            Remove your thoughts                     
+        </label>
+    </div>
+
+    <div>
+        <input type="hidden" name="userid" value="{{$user->id}}">
+    </div>
+
     <button type="submit" class="btn btn-primary">Save new info</button>
 </form>
 </div>

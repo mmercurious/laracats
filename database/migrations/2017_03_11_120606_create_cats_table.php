@@ -21,7 +21,8 @@ class CreateCatsTable extends Migration
 
             $table->foreign('creator')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

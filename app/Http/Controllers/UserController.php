@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Http\Requests\UserPasswordFormRequest;
+use App\Http\Requests\UserUpdateFormRequest;
 
 class UserController extends Controller
 {
@@ -22,24 +23,20 @@ class UserController extends Controller
     }
 
     public function newPassword() {
-		$user = Auth::user();
-
-    	return view('users.change', compact('user'));
+		return view('users.change');
     }
 
     public function changePassword(UserPasswordFormRequest $request) {
-    	$success = $request->persist();
+    	$request->persist();
 
-    	if ($success) {
-	        return redirect()->action('UserController@index')->with('status', 'Password was changed.');
-	    }
-	    else {
-	    	return view('users.change')->withErrors('old', 'Password is incorrect.');
-	    }
+	    return redirect()->action('UserController@index')->with('status', 'Password was changed.');
     }
 
-    public function save(Request $request) {
-    	# code...
+    public function save(UserUpdateFormRequest $request) {
+    	$request->persist();
+
+    	$user = Auth::user();
+    	return view('users.index', compact('user'));
     }
 
     public function delete() {
@@ -47,6 +44,10 @@ class UserController extends Controller
     }
 
     public function deleteUser(Request $request) {
-    	
+    	$user = Auth::user();
+
+    	$user->delete();
+
+    	return redirect()->action('CatController@index')->with('status', 'User account was deleted.');
     }
 }

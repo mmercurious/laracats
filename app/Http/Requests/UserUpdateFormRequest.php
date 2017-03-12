@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserUpdateFormRequest extends Request
 {
@@ -13,7 +14,7 @@ class UserUpdateFormRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,31 @@ class UserUpdateFormRequest extends Request
     public function rules()
     {
         return [
-            
+            'name' => 'max:255',
+            'email' => 'email|max:255|unique:users,email,'.$this->get('userid'),
+            'thoughts' => 'string'
         ];
+    }
+
+    public function persist() {
+        $user = Auth::user();
+
+        if (!empty($this->name) && ($user->name != $this->name)) {
+            $user->name = $this->name;
+        }
+
+        if (!empty($this->email) && ($user->email != $this->email)) {
+            $user->email = $this->email;
+        }
+
+        if (!empty($this->thoughts)) {
+            $user->thoughts = $this->thoughts;
+        }
+
+        if ($this->remove == 1) {
+            $user->thoughts = null;
+        }
+
+        $user->save();
     }
 }

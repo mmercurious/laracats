@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Cat;
 
+
 class CatsTableSeeder extends Seeder
 {
     /**
@@ -11,17 +12,21 @@ class CatsTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {        
         factory('App\Cat')->create([             
         	'name' => 'George',             
-        	'description' => 'Ginger cat with a huge heart. Loves to play with feathers.',                     
+        	'description' => 'Ginger cat with a huge heart. Loves to play with feathers.',     
+            'creator' => 1                
         ]);
 
         factory('App\Cat')->create([             
         	'name' => 'Miuku',             
-        	'description' => 'A shy black cat, very kind.',                     
+        	'description' => 'A shy black cat, very kind.',    
+            'creator' => 1                  
         ]);
 
-        factory('App\Cat', 7)->create();
+        factory('App\Cat', 7)->create([
+            'creator' => 1,
+        ]);
     }
 }

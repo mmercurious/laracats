@@ -4,7 +4,6 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
 class UserPasswordFormRequest extends Request
 {
@@ -34,9 +33,9 @@ class UserPasswordFormRequest extends Request
     public function persist() {
         $user = Auth::user();
         
-        $newpassword = bcrypt($this->password);
+        $newpassw = bcrypt($this->new_password);
 
-        $user->password = $newpassword;
-            
+        $user->password = $newpassw;
+        $user->save();            
     }
 }
