@@ -27,4 +27,8 @@ class User extends Authenticatable
     public function roles() {         
         return $this->belongsToMany(Role::class);     
     }
+
+    public function cats() {
+        return $this->hasMany(Cat::class, 'creator');
+    }
 }
