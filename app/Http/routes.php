@@ -20,9 +20,14 @@ Route::get('/mycats', 'CatController@showMyCats');
 
 Route::get('/profile', 'UserController@index');
 Route::get('/profile/edit', 'UserController@edit');
-Route::get('/profile/password', 'UserController@changePassword');
+Route::get('/profile/password', 'UserController@newPassword');
 
 Route::post('/user', 'UserController@save');
+
+Route::post('/user/password', 'UserController@changePassword');
+
+Route::get('/delete', 'UserController@delete');
+Route::post('/delete', 'UserController@deleteUser');
 
 Route::auth();
 

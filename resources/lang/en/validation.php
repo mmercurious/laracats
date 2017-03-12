@@ -90,6 +90,7 @@ return [
     | specify a specific custom language line for a given attribute rule.
     |
     */
+    'user_password' => 'The old password was incorrect.',
 
     'custom' => [
         'attribute-name' => [
@@ -108,6 +109,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'old' => 'old password',
+        'new_password' => 'new password',
+    ],
 
 ];
