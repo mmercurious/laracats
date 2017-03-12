@@ -18,6 +18,10 @@ Route::get('/cats/{cat}', 'CatController@show');
 Route::post('/cats/{cat}/comments', 'CommentController@save');
 Route::get('/mycats', 'CatController@showMyCats');
 
+Route::get('/profile', 'UserController@index');
+Route::get('/profile/edit', 'UserController@edit');
+Route::get('/profile/password', 'UserController@changePassword');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
