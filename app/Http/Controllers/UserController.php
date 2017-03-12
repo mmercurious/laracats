@@ -15,10 +15,17 @@ class UserController extends Controller
     }
 
     public function edit() {
-    	# code...
+    	$user = Auth::user();
+
+    	return view('users.edit', compact('user'));
     }
 
     public function changePassword() {
+    	# code...
+    }
+
+    public function save(Request $request)
+    {
     	# code...
     }
 }

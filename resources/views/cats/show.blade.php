@@ -1,14 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+
+
     <div class="col-lg-8">
-        <h1>{{$cat->name}}</h1>
+        <a href="{{url()->previous()}}">&larr; Back to cats</a>
         <hr>
-        <p>Cat was added {{$cat->created_at->diffForHumans()}}</p>
-        <p>Cat was added by {{$cat->user->name}}</p>
+        <h1>{{{$cat->name}}}</h1>
+        <hr>
+        <p>Cat was added {{{$cat->created_at->diffForHumans()}}}</p>
+        @if ($cat->user)
+        <p>Cat was added by {{{$cat->user->name}}}</p>
+        @else
+        <p>Cat was added by an unkown user.</p>
+        @endif
         <hr>
 
-        <p class="lead">{{$cat->description}}</p>
+        <p class="lead">{{{$cat->description}}}</p>
 
         @include('comments.index')
 

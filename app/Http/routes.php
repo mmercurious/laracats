@@ -22,6 +22,8 @@ Route::get('/profile', 'UserController@index');
 Route::get('/profile/edit', 'UserController@edit');
 Route::get('/profile/password', 'UserController@changePassword');
 
+Route::post('/user', 'UserController@save');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

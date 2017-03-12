@@ -7,9 +7,9 @@
         </a>
         <div class="media-body">
             <h4 class="media-heading">Posted on
-                <small>{{$comment->created_at}}</small>
+                <small>{{{$comment->created_at}}}</small>
             </h4>
-            {{$comment->body}}
+            {{{$comment->body}}}
         </div>
     </div>
 @empty
