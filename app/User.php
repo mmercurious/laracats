@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Http\Middleware\CheckAdminStatus;
+use League\CommonMark\CommonMarkConverter;
 
 class User extends Authenticatable
 {
@@ -35,5 +36,11 @@ class User extends Authenticatable
 
     public function isAdmin() {
         return $this->roles->pluck('name')->contains('admin');
+    }
+
+     public function htmlDescription() {
+        $converter = new CommonMarkConverter();
+        $safe = htmlspecialchars($this->thoughts);
+        return $converter->convertToHtml($safe);
     }
 }

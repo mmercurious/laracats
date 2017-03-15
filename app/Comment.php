@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use League\CommonMark\CommonMarkConverter;
 
 class Comment extends Model
 {
@@ -10,5 +11,11 @@ class Comment extends Model
 	
     public function cats() {
     	return $this->belongsTo(Cat::class);
+    }
+
+    public function htmlDescription() {
+        $converter = new CommonMarkConverter();
+        $safe = htmlspecialchars($this->body);
+        return $converter->convertToHtml($safe);
     }
 }

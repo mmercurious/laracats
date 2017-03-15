@@ -14,7 +14,7 @@
 
     <h2>Thoughts about cats:</h2>
     @if($user->thoughts)
-    	<p>{{{$user->thoughts}}}</p>
+        {!! $user->htmlDescription() !!}
     @else
     	<p>You haven't added any thoughts about cats yet :(</p>
 

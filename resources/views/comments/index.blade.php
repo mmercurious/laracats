@@ -9,7 +9,7 @@
             <h4 class="media-heading">Posted on
                 <small>{{{$comment->created_at}}}</small>
             </h4>
-            {{{$comment->body}}}
+            {!! $comment->htmlDescription() !!}
         </div>
     </div>
 @empty
