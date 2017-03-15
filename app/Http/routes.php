@@ -46,7 +46,11 @@ Route::auth();
 
 Route::group(['middleware' => ['auth', 'adminOnly']], function () {
 	// Admin portal
-	Route::get('/admin', 'HomeController@index');
+	Route::get('/admin', 'AdminController@index');
+	Route::post('/admin/{user}/removeadmin', 'AdminController@removeStatus');
+	Route::post('/admin/{user}/makeadmin', 'AdminController@makeStatus');
+	Route::post('/admin/{user}/deleteuser', 'AdminController@deleteUser');
+	Route::get('/admin/{user}/deleteuser', 'AdminController@confirmDelete');
 });
 
 // Available for all
