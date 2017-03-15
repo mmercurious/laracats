@@ -15,7 +15,7 @@
     </div>
 
     <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
-        <label class="control-label" for="description">Cat's description:</label>
+        <label class="control-label" for="description">Cat's description (you may use <a href="https://en.wikipedia.org/wiki/Markdown#Example">markdown</a>):</label>
         <textarea class="form-control" name="description" id="description">{{{old('description')}}}</textarea>
         {!!$errors->first('description', '<p class="help-block">:message</p>')!!}
     </div>

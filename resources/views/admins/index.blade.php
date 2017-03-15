@@ -15,7 +15,7 @@
 
         <p>{{$user->isAdmin() ? 'User is admin.' : 'User is not admin.' }}</p>
 
-        
+        @if($user->id != Auth::user()->id)
 
         <table>
         <tr>
@@ -47,8 +47,9 @@
 
         </tr>
         </table>
-
-        
+        @else
+        <p>You cannot remove admin status from yourself or delete your user account in admin portal.</p>
+        @endif
         <hr>
 
        

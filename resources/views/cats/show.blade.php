@@ -16,7 +16,7 @@
         @endif
         <hr>
 
-        <p class="lead">{{{$cat->description}}}</p>
+        <div class="lead">{!! $cat->htmlDescription() !!}</div>
 
         @include('comments.index')
 

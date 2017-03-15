@@ -12,7 +12,7 @@
         <hr>
 
         <!-- Cat Content -->
-        <p class="lead">{{{$cat->description}}}</p>
+        <div class="lead">{!! $cat->htmlDescription() !!}</div>
         <p><a href="{{ url('/cats/' .$cat->id) }}">Read more &rarr;</a></p>
         <hr>
     @empty

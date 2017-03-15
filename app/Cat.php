@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Comment;
+use League\CommonMark\CommonMarkConverter;
 
 class Cat extends Model
 {
@@ -19,5 +20,12 @@ class Cat extends Model
 
     public function user() {
     	return $this->belongsTo(User::class, 'creator');
+    }
+
+    public function htmlDescription() {
+        $converter = new CommonMarkConverter();
+        $safe = htmlspecialchars($this->description);
+        return $converter->convertToHtml($safe);
+        
     }
 }
