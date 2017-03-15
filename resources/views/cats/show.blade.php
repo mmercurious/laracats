@@ -26,7 +26,7 @@
             Please sign in to post comments
         @endif
 
-        @if(Auth::check() && ($cat->creator == Auth::user()->id))
+        @if((Auth::check() && ($cat->creator == Auth::user()->id)) || (Auth::user()->isAdmin()))
 
         <hr>
 
