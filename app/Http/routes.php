@@ -44,9 +44,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::auth();
 
-
-// Admin portal
-Route::get('/admin', 'HomeController@index');
+Route::group(['middleware' => ['auth', 'adminOnly']], function () {
+	// Admin portal
+	Route::get('/admin', 'HomeController@index');
+});
 
 // Available for all
 Route::get('/', 'CatController@index');

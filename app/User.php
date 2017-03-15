@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Http\Middleware\CheckAdminStatus;
 
 class User extends Authenticatable
 {
@@ -30,5 +31,9 @@ class User extends Authenticatable
 
     public function cats() {
         return $this->hasMany(Cat::class, 'creator');
+    }
+
+    public function isAdmin() {
+        return $this->roles->pluck('name')->contains('admin');
     }
 }
