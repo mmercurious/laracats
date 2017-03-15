@@ -22,5 +22,8 @@ class UsersTableSeeder extends Seeder
         factory('App\User', 2)->create();
 
         User::find(1)->roles()->attach(Role::first());
+
+        User::find(2)->roles()->attach(Role::where('name', 'basicUser')->first());
+        User::find(3)->roles()->attach(Role::where('name', 'basicUser')->first());
     }
 }
