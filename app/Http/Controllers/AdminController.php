@@ -18,7 +18,7 @@ class AdminController extends Controller
 
     public function removeStatus(User $user) {
     	if (Auth::user()->id != $user->id) {
-    		
+    		$user->roles()->detach(Role::where('name', 'admin')->first());
     		return back()->with('status', 'Admin role revoked.');
     	}
 
@@ -30,13 +30,17 @@ class AdminController extends Controller
     	return back()->with('status', 'Admin role granted.');
     }
 
-    public function deleteUser($value='')
-    {
-    	# code...
+    public function deleteUser(User $user) {
+    	if (Auth::user()->id != $user->id) {
+   			$user->delete();
+   			
+    		return redirect()->action('AdminController@index')->with('status', 'User deleted.');
+    	}
+    	
+    	return redirect()->action('AdminController@index')->with('status', 'You cannot delete yourself in admin portal.');
     }
 
-    public function confirmDelete($value='')
-    {
-    	# code...
+    public function confirmDelete(User $user) {
+    	return view('admins.delete', compact('user'));
     }
 }

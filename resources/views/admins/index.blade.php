@@ -38,7 +38,7 @@
         @endif
 
             <td style="padding-left: 0.6em">
-                <form action="{{ url('/admin/' .$user->id . '/deleteuser') }}" method="post">
+                <form action="{{ url('/admin/' .$user->id . '/deleteuser') }}" method="get">
                     {{csrf_field()}}
                     
                     <button type="submit" class="btn btn-danger btn-xs">Delete user</button>
