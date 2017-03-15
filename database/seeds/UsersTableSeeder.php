@@ -19,5 +19,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         factory('App\User', 2)->create();
+
+        User::find(1)->roles()->attach(Role::first());
     }
 }
